@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 const Budget = () => {
-    const { expenses, budget, dispatch } = useContext(AppContext);
+    const { expenses, budget, dispatch, currency } = useContext(AppContext);
     const [cost, setCost] = useState(budget)
     const totalExpenses = expenses.reduce((total, item) => {
         return (total = total + item.cost);
@@ -9,7 +9,7 @@ const Budget = () => {
 
     return (
         <div className='alert alert-secondary'>
-            <span>Budget: <input
+            <span>Budget: {currency}<input
                 required='required'
                 type='number'
                 id='budget'
